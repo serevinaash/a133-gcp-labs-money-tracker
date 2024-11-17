@@ -1,0 +1,15 @@
+runtime: php83  # Atur runtime yang konsisten (php81 atau php83)
+service: frontend  # Nama layanan
+
+# Dokumentasi aplikasi
+env_variables:
+  COMPOSER_ALLOW_SUPERUSER: "1"  # Izinkan Composer berjalan sebagai superuser
+
+runtime_config:
+  document_root: public  # Folder root aplikasi Anda (ubah jika berbeda)
+
+handlers:
+  - url: /assets
+    static_dir: assets  # Atur direktori static untuk folder assets
+  - url: /.*
+    script: auto  # Default handler untuk semua permintaan
